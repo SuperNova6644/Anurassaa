@@ -1,0 +1,630 @@
+/* ==========================================================================
+   ANURASSAA — GLOBAL STYLES & DESIGN TOKENS
+   Faithfully matching the Figma nodes and layout for "Anurassa landing v1"
+   ========================================================================== */
+
+:root {
+  /* Exact Figma Color Tokens */
+  --color-brand-green: rgba(64, 87, 61, 1);       /* #40573D: "Anurassaa" & "Coming Soon" */
+  --color-divider-line: rgba(25, 89, 8, 1);       /* #195908: Frame 57 / Line 12 */
+  --color-olive-text: rgba(83, 96, 68, 1);         /* #536044: "Get in touch" */
+  --color-olive-text-80: rgba(83, 96, 68, 0.8);    /* #536044 at 80%: Tagline & Contact Links */
+
+  /* Fonts */
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  color: var(--color-olive-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.anurassa-body {
+  min-height: 100vh;
+  position: relative;
+  background-color: #f7f1e6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+/* Accessible focus outlines */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-brand-green);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   LANDING FRAME: "Anurassa landing v1" (1920x1080)
+   ========================================================================== */
+
+.anurassa-landing-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+/* Background Image 35 */
+.anurassa-background-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.anurassa-background-image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Figma Frame 903: 644x589px, positioned at (638, 110)px in 1920x1080 canvas */
+.anurassa-content-canvas {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 644px;
+  margin: 0 auto;
+  padding: clamp(40px, 10.18vh, 110px) 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.anurassa-content-inner {
+  width: 100%;
+  max-width: 644px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ==========================================================================
+   FRAME 49: BRAND HEADER (238x58px at 203, 0 in Frame 903)
+   ========================================================================== */
+
+.anurassa-brand-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(40px, 6.9vh, 75px);
+}
+
+.anurassa-brand-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  height: 58px;
+}
+
+.anurassa-emblem-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-brand-green);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.anurassa-emblem-trigger:hover {
+  transform: scale(1.08);
+}
+
+.anurassa-emblem-spin {
+  animation: emblem-rotate 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes emblem-rotate {
+  0% {
+    transform: rotate(0deg) scale(0.95);
+  }
+  100% {
+    transform: rotate(180deg) scale(1);
+  }
+}
+
+.anurassa-emblem-svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.anurassa-brand-title {
+  font-family: var(--font-serif);
+  font-weight: 300; /* Light */
+  font-size: 48px;
+  line-height: 1;
+  color: var(--color-brand-green);
+  letter-spacing: 0;
+  user-select: none;
+}
+
+/* ==========================================================================
+   FRAME 58: HERO SECTION (644x238px at 0, 133 in Frame 903)
+   ========================================================================== */
+
+.anurassa-hero-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: clamp(40px, 6.9vh, 75px);
+}
+
+.anurassa-hero-title {
+  font-family: var(--font-serif);
+  font-weight: 400; /* Regular */
+  font-size: clamp(54px, 5vw, 96px);
+  line-height: 1.05;
+  color: var(--color-brand-green);
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* Frame 57 / Line 12 (500x0px, stroke 1px rgba(25, 89, 8, 1)) */
+.anurassa-divider-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: clamp(14px, 2vh, 22px) auto;
+  padding: 0 10px;
+}
+
+.anurassa-divider-line {
+  width: 500px;
+  max-width: 100%;
+  height: 1px;
+  background-color: var(--color-divider-line);
+}
+
+/* Subtitle / Tagline */
+.anurassa-hero-tagline {
+  font-family: var(--font-sans);
+  font-weight: 400; /* Regular */
+  font-size: clamp(16px, 1.35vw, 24px);
+  line-height: 1.35;
+  color: var(--color-olive-text-80);
+  letter-spacing: 0;
+  text-align: center;
+  max-width: 644px;
+}
+
+/* ==========================================================================
+   FRAME 904: CONTACT SECTION (644x143px at 0, 446 in Frame 903)
+   ========================================================================== */
+
+.anurassa-contact-frame {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.anurassa-contact-title {
+  font-family: var(--font-sans);
+  font-weight: 800; /* ExtraBold */
+  font-size: 24px;
+  color: var(--color-olive-text);
+  letter-spacing: -0.05em;
+  text-align: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.anurassa-contact-title:hover {
+  opacity: 0.85;
+}
+
+/* Frame 910: 506x104px */
+.anurassa-contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Frame 909 & 908 */
+.anurassa-contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 52px;
+  width: 100%;
+}
+
+.anurassa-contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.anurassa-contact-link:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.anurassa-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.anurassa-contact-text {
+  font-family: var(--font-sans);
+  font-weight: 500; /* Medium */
+  font-size: clamp(18px, 1.8vw, 32px);
+  line-height: 1.63;
+  color: var(--color-olive-text-80);
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   MODAL DIALOG (Interactive early access / inquiry form)
+   ========================================================================== */
+
+.anurassa-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(28, 36, 26, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: modal-fade-in 0.2s ease-out;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.anurassa-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(64, 87, 61, 0.15);
+  animation: modal-slide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-slide {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.anurassa-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.anurassa-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: rgba(64, 87, 61, 0.1);
+  color: var(--color-brand-green);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.anurassa-modal-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.anurassa-modal-close-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.anurassa-modal-title {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--color-brand-green);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.anurassa-modal-description {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  color: #4b5563;
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.anurassa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.anurassa-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.anurassa-form-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.anurassa-required {
+  color: #dc2626;
+}
+
+.anurassa-optional {
+  font-weight: 400;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.anurassa-form-input,
+.anurassa-form-select,
+.anurassa-form-textarea {
+  width: 100%;
+  padding: 10px 13px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #fbfbfb;
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  color: #111827;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.anurassa-form-input:focus,
+.anurassa-form-select:focus,
+.anurassa-form-textarea:focus {
+  background-color: #ffffff;
+  border-color: var(--color-brand-green);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(64, 87, 61, 0.15);
+}
+
+.anurassa-input-invalid {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.anurassa-field-error {
+  font-size: 12px;
+  color: #dc2626;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.anurassa-form-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+}
+
+.anurassa-form-checkbox {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--color-brand-green);
+  cursor: pointer;
+}
+
+.anurassa-form-checkbox-label {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.anurassa-primary-button {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--color-brand-green);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.anurassa-primary-button:hover:not(:disabled) {
+  background: #344832;
+}
+
+.anurassa-primary-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.anurassa-spinner-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.anurassa-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.anurassa-success-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 8px;
+}
+
+.anurassa-success-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 2px solid #bbf7d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.anurassa-success-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--color-brand-green);
+  margin-bottom: 8px;
+}
+
+.anurassa-success-text {
+  font-size: 14.5px;
+  color: #4b5563;
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .anurassa-content-canvas {
+    padding-top: 36px;
+    padding-bottom: 40px;
+  }
+
+  .anurassa-brand-header {
+    margin-bottom: 28px;
+  }
+
+  .anurassa-brand-title {
+    font-size: 38px;
+  }
+
+  .anurassa-hero-section {
+    margin-bottom: 32px;
+  }
+
+  .anurassa-hero-title {
+    font-size: 52px;
+  }
+
+  .anurassa-divider-container {
+    margin: 14px auto;
+  }
+
+  .anurassa-contact-row {
+    height: auto;
+    padding: 6px 0;
+  }
+
+  .anurassa-contact-link {
+    justify-content: flex-start;
+  }
+
+  .anurassa-contact-text {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .anurassa-content-canvas {
+    padding-top: 110px;
+  }
+}
